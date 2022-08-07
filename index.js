@@ -8,16 +8,26 @@ var app = express();
 const urlencoded = bodyParser.urlencoded({ extended: true });
 const products = require('./product.json');
 
-//To get all products
+//Middleware 
+const logger = (req, res, next) => {
+   console.log('in logger');
+   const method = req.method
+   const url = req.url
+   const body = req.body
+   console.log(method, url,body)
+   next()
+ }
 
+//To get all products
 app.get('/',(req,res)=>{
+   console.log('in all products');
    return res.send(products);
 });
 
 //To get single product by id
-app.post('/getProductById',urlencoded,(req,res)=>{
+app.post('/getProductById',urlencoded,logger,(req,res)=>{
     const productId = req.body.id;
-    console.log(productId);
+    //console.log(productId);
     const findProduct = products.find((product)=>
       product.id===Number(productId)
     )
@@ -43,6 +53,5 @@ app.post('/searchProduct',urlencoded,(req,res)=>{
 });
 
 
-app.listen(5000,()=>{
- console.log('server is running at port 5000');
-});
+
+app.listen(3000);
