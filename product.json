@@ -1,0 +1,22 @@
+[
+    {
+        "id":1,
+        "name" :"Shirts"
+    },
+    {
+        "id":2,
+        "name" :"Tops"
+    },
+    {
+        "id":3,
+        "name" :"Chairs"
+    },
+    {
+        "id":4,
+        "name" :"Bottles"
+    },
+    {
+        "id":5,
+        "name" :"Tables"
+    }
+]
